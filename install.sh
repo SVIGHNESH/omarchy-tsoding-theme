@@ -53,9 +53,11 @@ cp "$SOURCE_PATH"/*.toml "$SOURCE_PATH"/*.lua "$SOURCE_PATH"/*.conf "$SOURCE_PAT
 
 step "Installing the bar widgets"
 mkdir -p "$PLUGINS_PATH"
+# Copied over an existing install in place: the running shell drops a widget
+# from the bar layout the moment its plugin directory disappears.
 for plugin in "$SOURCE_PATH"/plugins/*/; do
-  rm -rf "${PLUGINS_PATH:?}/$(basename "$plugin")"
-  cp -r "$plugin" "$PLUGINS_PATH/"
+  mkdir -p "$PLUGINS_PATH/$(basename "$plugin")"
+  cp -r "$plugin". "$PLUGINS_PATH/$(basename "$plugin")/"
 done
 
 step "Installing the theme-set hook"
