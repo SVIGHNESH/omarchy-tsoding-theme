@@ -1,0 +1,15 @@
+{
+  "centerAnchor": "",
+  "layout": {
+    "left": [
+      { "id": "vighnesh.i3-workspaces" }
+    ],
+    "center": [],
+    "right": [
+      { "id": "vighnesh.i3status" },
+      { "id": "omarchy.tray" }
+    ]
+  },
+  "position": "bottom",
+  "transparent": false
+}

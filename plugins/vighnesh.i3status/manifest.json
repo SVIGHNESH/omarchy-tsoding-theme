@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "vighnesh.i3status",
+  "name": "i3status",
+  "version": "1.0.0",
+  "author": "vighnesh",
+  "description": "Runs i3status and draws its blocks like stock i3bar",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "i3status",
+    "description": "Runs i3status and draws its blocks like stock i3bar",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

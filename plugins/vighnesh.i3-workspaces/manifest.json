@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "vighnesh.i3-workspaces",
+  "name": "i3 Workspaces",
+  "version": "1.0.0",
+  "author": "vighnesh",
+  "description": "Workspace buttons drawn like stock i3bar",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "i3 Workspaces",
+    "description": "Workspace buttons drawn like stock i3bar",
+    "category": "Compositor",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}

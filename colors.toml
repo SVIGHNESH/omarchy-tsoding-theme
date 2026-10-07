@@ -1,0 +1,37 @@
+# Gruber Darker, as set in Tsoding's .Xresources (github.com/rexim/dotfiles).
+mode = "dark"
+
+# i3's stock focused-window blue.
+accent = "#4c7899"
+selection = "#453d41"
+muted = "#555753"
+
+background = "#181818"
+dark_background = "#101010"
+darker_background = "#000000"
+lighter_background = "#282828"
+
+foreground = "#e4e4ef"
+dark_foreground = "#52494e"
+light_foreground = "#f4f4ff"
+bright_foreground = "#eeeeec"
+
+red = "#a40000"
+yellow = "#c4a000"
+orange = "#ce5c00"
+green = "#4e9a06"
+cyan = "#ce5c00"
+blue = "#3465a4"
+magenta = "#75507b"
+brown = "#cc8c3c"
+
+bright_red = "#ef2929"
+bright_yellow = "#fce94f"
+bright_green = "#8ae234"
+bright_cyan = "#fcaf3e"
+bright_blue = "#729fcf"
+bright_magenta = "#ad7fa8"
+
+# i3 client.focused / client.unfocused child_border defaults.
+hyprland_active_border = "rgb(285577)"
+hyprland_inactive_border = "rgb(222222)"

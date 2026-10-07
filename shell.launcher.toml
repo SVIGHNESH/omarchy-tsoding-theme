@@ -1,0 +1,14 @@
+[launcher]
+background                = "#222222"
+background-alpha          = 1.0
+text                      = "#bbbbbb"
+border                    = "#285577"
+border-alpha              = 1.0
+border-width              = 1
+scrim                     = "#000000"
+scrim-alpha               = 0.0
+selected-background       = "#005577"
+selected-background-alpha = 1.0
+selected-text             = "#eeeeee"
+selected-border           = "#005577"
+selected-border-alpha     = 0.0

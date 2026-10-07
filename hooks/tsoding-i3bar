@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# The tsoding theme replaces the bar with an i3bar layout and the system font
+# with Iosevka. Neither lives in a theme directory, so swap them in when the
+# theme is set and put the previous bar and font back when another one is.
+
+THEME_NAME=$1
+SHELL_CONFIG="$HOME/.config/omarchy/shell.json"
+THEME_BAR="$HOME/.config/omarchy/themes/tsoding/bar.json"
+SAVED_PATH="$HOME/.local/state/omarchy/tsoding"
+
+set_bar() {
+  local tmp
+
+  tmp=$(mktemp)
+  jq --slurpfile bar "$1" '.bar = $bar[0]' "$SHELL_CONFIG" >"$tmp" && cat "$tmp" >"$SHELL_CONFIG"
+  rm -f "$tmp"
+}
+
+# The family omarchy-font-set last wrote, which is what the terminals use.
+current_font() {
+  sed -n 's:.*<string>\(.*\)</string>.*:\1:p' "$HOME/.config/fontconfig/fonts.conf" 2>/dev/null | tail -n 1
+}
+
+set_font() {
+  [[ -n $1 && $(current_font) != "$1" ]] && omarchy-font-set "$1" >/dev/null
+}
+
+# A shell that still runs on Omarchy's defaults has no shell.json to edit yet.
+if [[ ! -f $SHELL_CONFIG ]]; then
+  cp "${OMARCHY_PATH:-/usr/share/omarchy}/config/omarchy/shell.json" "$SHELL_CONFIG" || exit 0
+fi
+
+if [[ $THEME_NAME == "tsoding" ]]; then
+  if [[ ! -f $SAVED_PATH/bar.json ]]; then
+    mkdir -p "$SAVED_PATH"
+    jq '.bar' "$SHELL_CONFIG" >"$SAVED_PATH/bar.json"
+    current_font >"$SAVED_PATH/font"
+  fi
+
+  set_bar "$THEME_BAR"
+  set_font "Iosevka"
+elif [[ -f $SAVED_PATH/bar.json ]]; then
+  set_bar "$SAVED_PATH/bar.json"
+  set_font "$(cat "$SAVED_PATH/font" 2>/dev/null)"
+  rm -rf "$SAVED_PATH"
+fi
+
+exit 0
