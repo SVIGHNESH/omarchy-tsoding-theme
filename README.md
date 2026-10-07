@@ -40,7 +40,7 @@ Log out and back in afterwards so the title bars pick up Iosevka.
 
 1. Installs `ttc-iosevka` and `i3status` with pacman.
 2. Copies the theme to `~/.config/omarchy/themes/tsoding`.
-3. Copies two bar widgets to `~/.config/omarchy/plugins/`: `vighnesh.i3-workspaces` and `vighnesh.i3status`.
+3. Copies three bar widgets to `~/.config/omarchy/plugins/`: `vighnesh.i3-workspaces`, `vighnesh.i3status`, and `vighnesh.i3bar-lock`.
 4. Installs a `theme-set` hook at `~/.config/omarchy/hooks/theme-set.d/tsoding-i3bar`.
 5. Appends one line to `~/.config/hypr/hyprland.lua` so a theme can load Hyprland settings after your own `looknfeel.lua`. A timestamped backup is saved next to it.
 6. Runs `omarchy theme set tsoding`.
@@ -74,6 +74,12 @@ When you set any other theme it puts your bar and font back.
 
 While the theme is active your usual bar widgets (audio, network, clock and so on) are hidden.
 Their keybindings still work.
+
+The bar is locked while the theme is active.
+The Omarchy bar normally lets you drag widgets to reorder them and drag the bar to another screen edge, which is easy to do by accident.
+An invisible widget, `vighnesh.i3bar-lock`, puts the i3bar layout back within a second if it changes.
+The lock is part of this theme's bar only, so every other theme keeps the normal drag behavior.
+To change the layout on purpose, edit `~/.config/omarchy/themes/tsoding/bar.json`.
 
 ## Privacy
 
@@ -110,7 +116,7 @@ The two packages stay installed.
 | `hyprland.lua`, `hyprland-final.lua` | i3 borders, title bars, and the flat look |
 | `shell.*.toml` | Bar, menu, launcher, popup and notification colors |
 | `bar.json` | The i3bar layout the hook swaps in |
-| `plugins/` | The workspace and i3status bar widgets |
+| `plugins/` | The workspace, i3status and layout lock bar widgets |
 | `hooks/tsoding-i3bar` | Saves and restores the bar layout and font |
 
 ## Credits

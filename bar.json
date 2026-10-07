@@ -4,7 +4,9 @@
     "left": [
       { "id": "vighnesh.i3-workspaces" }
     ],
-    "center": [],
+    "center": [
+      { "id": "vighnesh.i3bar-lock" }
+    ],
     "right": [
       { "id": "vighnesh.i3status" },
       { "id": "omarchy.tray" }

@@ -17,7 +17,7 @@ if [[ $(cat "$HOME/.local/state/omarchy/current/theme.name" 2>/dev/null) == "$TH
 fi
 
 rm -rf "$OMARCHY_CONFIG/themes/$THEME_NAME"
-rm -rf "$OMARCHY_CONFIG/plugins/vighnesh.i3-workspaces" "$OMARCHY_CONFIG/plugins/vighnesh.i3status"
+rm -rf "$OMARCHY_CONFIG/plugins/vighnesh.i3-workspaces" "$OMARCHY_CONFIG/plugins/vighnesh.i3status" "$OMARCHY_CONFIG/plugins/vighnesh.i3bar-lock"
 rm -f "$OMARCHY_CONFIG/hooks/theme-set.d/tsoding-i3bar"
 
 if [[ -f $HYPRLAND_CONFIG ]]; then

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Reset the bar to the tsoding theme's layout if it has drifted from it.
+
+SHELL_CONFIG="$HOME/.config/omarchy/shell.json"
+THEME_BAR="$HOME/.config/omarchy/themes/tsoding/bar.json"
+
+# The theme-set hook restores the previous bar when another theme is set, and
+# this widget can outlive that by a moment.
+[[ $(cat "$HOME/.local/state/omarchy/current/theme.name" 2>/dev/null) == "tsoding" ]] || exit 0
+[[ -f $SHELL_CONFIG && -f $THEME_BAR ]] || exit 0
+
+jq -e --slurpfile bar "$THEME_BAR" '.bar == $bar[0]' "$SHELL_CONFIG" >/dev/null && exit 0
+
+tmp=$(mktemp)
+jq --slurpfile bar "$THEME_BAR" '.bar = $bar[0]' "$SHELL_CONFIG" >"$tmp" && cat "$tmp" >"$SHELL_CONFIG"
+rm -f "$tmp"

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "vighnesh.i3bar-lock",
+  "name": "i3bar Lock",
+  "version": "1.0.0",
+  "author": "vighnesh",
+  "description": "Keeps the bar on the tsoding theme's i3bar layout",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "i3bar Lock",
+    "description": "Keeps the bar on the tsoding theme's i3bar layout",
+    "category": "Layout",
+    "allowMultiple": false,
+    "defaultSection": "center"
+  }
+}
